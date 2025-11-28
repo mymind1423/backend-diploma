@@ -71,7 +71,7 @@ app.use(
 /* ------------------------------------------------------------------
    4️⃣ CORS sécurisé pour API (mais pas pour /pictures)
 ------------------------------------------------------------------ */
-const allowedOrigins = ["http://localhost:3001", "http://192.168.1.7:3001"];
+const allowedOrigins = ["http://localhost:3001", "https://diploma-checker-deploy.vercel.app"];
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
