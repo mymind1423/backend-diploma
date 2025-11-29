@@ -8,9 +8,12 @@ const fs = require("fs");
 // Configuration Oracle
 // --------------------
 const dbConfig = {
-  user: process.env.ORACLE_USER,
-  password: process.env.ORACLE_PASSWORD,
-  connectString: process.env.ORACLE_CONNECT_STRING
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  connectString: `(DESCRIPTION=
+      (ADDRESS=(PROTOCOL=TCP)(HOST=${process.env.DB_HOST})(PORT=${process.env.DB_PORT}))
+      (CONNECT_DATA=(SERVICE_NAME=${process.env.DB_SERVICE}))
+    )`
 };
 
 // --------------------
