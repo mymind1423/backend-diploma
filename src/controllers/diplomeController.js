@@ -115,7 +115,7 @@ async function getDiplomeByReference(req, res) {
     console.log(row.ID_ETUDIANT);
 
     // --- Génération URL PDF ---
-    const pdfUrl = `http://localhost:3000/diplomes/${row.REFERENCE}.pdf`;
+    const pdfUrl = `https://backend-diploma-q2sg.onrender.com/diplomes/${row.REFERENCE}.pdf`;
 
     // --- Génération QR ---
     const qrCodeBase64 = await QRCode.toDataURL(pdfUrl);

@@ -71,10 +71,9 @@ app.use(
 /* ------------------------------------------------------------------
    4️⃣ CORS sécurisé pour API (mais pas pour /pictures)
 ------------------------------------------------------------------ */
-const allowedOrigins = ["*"];
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", allowedOrigins);
+  res.setHeader("Access-Control-Allow-Origin", "https://diploma-checker.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");

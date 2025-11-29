@@ -184,7 +184,7 @@ async function uploadOCR(req, res) {
       const row = result.rows[0];
 
       // --- Génération URL PDF ---
-      const pdfUrl = `http://localhost:3000/diplomes/${row.REFERENCE}.pdf`;
+      const pdfUrl = `https://backend-diploma-q2sg.onrender.com/diplomes/${row.REFERENCE}.pdf`;
 
       // --- Génération QR ---
       const qrCodeBase64 = await QRCode.toDataURL(pdfUrl);
