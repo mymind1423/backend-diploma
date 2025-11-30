@@ -73,7 +73,7 @@ app.use(
 ------------------------------------------------------------------ */
 const AllowedOrigin = [
   "https://diploma-checker.vercel.app",
-  "http://localhost:53026"
+  "http://localhost"
 ];
 
 app.use((req, res, next) => {
@@ -147,6 +147,7 @@ app.use((err, req, res, next) => {
    9️⃣ Start server
 ------------------------------------------------------------------ */
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
 
 
 
