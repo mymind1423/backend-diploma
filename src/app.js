@@ -71,17 +71,29 @@ app.use(
 /* ------------------------------------------------------------------
    4️⃣ CORS sécurisé pour API (mais pas pour /pictures)
 ------------------------------------------------------------------ */
-const AllowedOrigin = ["https://diploma-checker.vercel.app", "http://localhost:53026"];
+const AllowedOrigin = [
+  "https://diploma-checker.vercel.app",
+  "http://localhost:53026"
+];
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", AllowedOrigin);
+  const origin = req.headers.origin;
+
+  if (AllowedOrigin.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  if (req.method === "OPTIONS") return res.sendStatus(200);
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
 
   next();
 });
+
 
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
@@ -135,6 +147,7 @@ app.use((err, req, res, next) => {
    9️⃣ Start server
 ------------------------------------------------------------------ */
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
 
 
 
