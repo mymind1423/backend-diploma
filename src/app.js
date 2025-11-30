@@ -71,7 +71,7 @@ app.use(
 /* ------------------------------------------------------------------
    4️⃣ CORS sécurisé pour API (mais pas pour /pictures)
 ------------------------------------------------------------------ */
-
+const AllowedOrigin = ["https://diploma-checker.vercel.app", "http://localhost:53026"];
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://diploma-checker.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
@@ -135,4 +135,5 @@ app.use((err, req, res, next) => {
    9️⃣ Start server
 ------------------------------------------------------------------ */
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
 
